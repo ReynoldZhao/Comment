@@ -30,12 +30,12 @@ class LikeList extends Component {
   }
 
   componentDidMount() {
-    if (this.props.pageCount < 3) {
+    if(this.props.pageCount < 3 ) {
       document.addEventListener("scroll", this.handleScroll);
-    } else {
+    }else {
       this.removeListener = true;
     }
-    if (this.props.pageCount === 0) {
+    if(this.props.pageCount === 0) {
       this.props.fetchData();
     }
   }
@@ -55,20 +55,15 @@ class LikeList extends Component {
 
   // 处理屏幕滚动事件，实现加载更多的效果
   handleScroll = () => {
-    const {isFetching} = this.props;
-    //滑动距离
-    const scrollTop = document.documentElement.scrollTop 
-    || document.body.scrollTop;
-    //可视区域高度
+    const scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
     const screenHeight = document.documentElement.clientHeight;
-    //likelist 距离屏幕顶部距离
     const likeListTop = this.myRef.current.offsetTop;
-    //likelist 内容高度
     const likeListHeight = this.myRef.current.offsetHeight;
-    if(scrollTop >= likeListHeight + likeListTop - screenHeight) {
+    if (scrollTop >= likeListHeight + likeListTop - screenHeight) {
       this.props.fetchData();
     }
-  }
+  };
 }
 
 export default LikeList;

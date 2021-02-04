@@ -55,10 +55,10 @@ export const actions = {
   //加载特惠商品
   loadDiscounts: () => {
     return (dispatch, getState) => {
-      const { ids } = getState().home.discounts;
-      if (ids.length > 0) {
+      const {ids} = getState().home.discounts
+      if(ids.length > 0) {
         return null;
-      } //如果已经有数据了，就不加载
+      }
       const endpoint = url.getProductList(
         params.PATH_DISCOUNTS,
         0,
@@ -69,10 +69,6 @@ export const actions = {
   }
 };
 
-//本质上也是个action creator
-//这个action是为了简化，复用每次进行异步网络请求时的action，dispatch和reducer操作
-//发送... 成功... 失败...
-//给中间件处理，进行异步网络请求的过程
 const fetchLikes = endpoint => ({
   [FETCH_DATA]: {
     types: [
@@ -147,10 +143,6 @@ export const getLikes = state => {
   return state.home.likes.ids.map(id => {
     return state.entities.products[id]
   })
-}
-
-export const getLikesIsFetching = state => {
-  return state.home.likes.isFetching;
 }
 
 //获取特惠商品state
