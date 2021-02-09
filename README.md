@@ -979,3 +979,10 @@ const reducer = (state = {}, action) => {
 删除：`onConfirm={removeOrder}`, id会由user redux中state的currentOder来获得，进行删除操作
 
 ## 总之就是把，当前选中的数据，从回调一开始，就都更新在user redux中，数据，id，标记为isCommenting，isDeleting，在触发回调的时候，都对其进行更新，获取也从他获取
+
+## Purchase Page
+
+本质上，是由home中的product detail中的buybutton跳转过来的，url里包含的productId，可以去product领域中获取到product的详尽数据，在根据purchase page的数量数据，形成order数据，并发送请求给后端，并存在order领域中
+
+
+
