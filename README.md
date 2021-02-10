@@ -984,5 +984,7 @@ const reducer = (state = {}, action) => {
 
 本质上，是由home中的product detail中的buybutton跳转过来的，url里包含的productId，可以去product领域中获取到product的详尽数据，在根据purchase page的数量数据，形成order数据，并发送请求给后端，并存在order领域中
 
+## 8.下单数据和个人中心页同步
 
+user redux要去响应order 领域实体的ADD_ORDER动作，并加入到user redux的state的order id中去
 
